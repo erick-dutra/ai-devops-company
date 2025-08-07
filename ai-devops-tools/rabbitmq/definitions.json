@@ -1,0 +1,300 @@
+{
+  "rabbit_version": "3.12.0",
+  "rabbitmq_version": "3.12.0",
+  "product_name": "RabbitMQ",
+  "product_version": "3.12.0",
+  "users": [
+    {
+      "name": "admin",
+      "password_hash": "gTJk8Q8mCCNmYKJKhQWGfg==",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": "administrator"
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "admin",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "topic_permissions": [],
+  "parameters": [],
+  "global_parameters": [
+    {
+      "name": "cluster_name",
+      "value": "aidevops-cluster"
+    }
+  ],
+  "policies": [],
+  "exchanges": [
+    {
+      "name": "agent.tasks",
+      "vhost": "/",
+      "type": "topic",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "agent.events",
+      "vhost": "/",
+      "type": "topic",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "agent.notifications",
+      "vhost": "/",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "agent.deadletter",
+      "vhost": "/",
+      "type": "direct",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "queues": [
+    {
+      "name": "agent.project-management.tasks",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 3600000,
+        "x-dead-letter-exchange": "agent.deadletter",
+        "x-dead-letter-routing-key": "project-management.failed"
+      }
+    },
+    {
+      "name": "agent.requirements-analysis.tasks",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 3600000,
+        "x-dead-letter-exchange": "agent.deadletter",
+        "x-dead-letter-routing-key": "requirements-analysis.failed"
+      }
+    },
+    {
+      "name": "agent.development.tasks",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 7200000,
+        "x-dead-letter-exchange": "agent.deadletter",
+        "x-dead-letter-routing-key": "development.failed"
+      }
+    },
+    {
+      "name": "agent.qa.tasks",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 3600000,
+        "x-dead-letter-exchange": "agent.deadletter",
+        "x-dead-letter-routing-key": "qa.failed"
+      }
+    },
+    {
+      "name": "agent.operations.tasks",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 1800000,
+        "x-dead-letter-exchange": "agent.deadletter",
+        "x-dead-letter-routing-key": "operations.failed"
+      }
+    },
+    {
+      "name": "agent.devops.tasks",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 3600000,
+        "x-dead-letter-exchange": "agent.deadletter",
+        "x-dead-letter-routing-key": "devops.failed"
+      }
+    },
+    {
+      "name": "agent.monitoring.tasks",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 1800000,
+        "x-dead-letter-exchange": "agent.deadletter",
+        "x-dead-letter-routing-key": "monitoring.failed"
+      }
+    },
+    {
+      "name": "agent.security.tasks",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 3600000,
+        "x-dead-letter-exchange": "agent.deadletter",
+        "x-dead-letter-routing-key": "security.failed"
+      }
+    },
+    {
+      "name": "agent.finance.tasks",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 1800000,
+        "x-dead-letter-exchange": "agent.deadletter",
+        "x-dead-letter-routing-key": "finance.failed"
+      }
+    },
+    {
+      "name": "agent.hr.tasks",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-message-ttl": 1800000,
+        "x-dead-letter-exchange": "agent.deadletter",
+        "x-dead-letter-routing-key": "hr.failed"
+      }
+    },
+    {
+      "name": "agent.deadletter.queue",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    },
+    {
+      "name": "agent.notifications.all",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    }
+  ],
+  "bindings": [
+    {
+      "source": "agent.tasks",
+      "vhost": "/",
+      "destination": "agent.project-management.tasks",
+      "destination_type": "queue",
+      "routing_key": "project-management.*",
+      "arguments": {}
+    },
+    {
+      "source": "agent.tasks",
+      "vhost": "/",
+      "destination": "agent.requirements-analysis.tasks",
+      "destination_type": "queue",
+      "routing_key": "requirements-analysis.*",
+      "arguments": {}
+    },
+    {
+      "source": "agent.tasks",
+      "vhost": "/",
+      "destination": "agent.development.tasks",
+      "destination_type": "queue",
+      "routing_key": "development.*",
+      "arguments": {}
+    },
+    {
+      "source": "agent.tasks",
+      "vhost": "/",
+      "destination": "agent.qa.tasks",
+      "destination_type": "queue",
+      "routing_key": "qa.*",
+      "arguments": {}
+    },
+    {
+      "source": "agent.tasks",
+      "vhost": "/",
+      "destination": "agent.operations.tasks",
+      "destination_type": "queue",
+      "routing_key": "operations.*",
+      "arguments": {}
+    },
+    {
+      "source": "agent.tasks",
+      "vhost": "/",
+      "destination": "agent.devops.tasks",
+      "destination_type": "queue",
+      "routing_key": "devops.*",
+      "arguments": {}
+    },
+    {
+      "source": "agent.tasks",
+      "vhost": "/",
+      "destination": "agent.monitoring.tasks",
+      "destination_type": "queue",
+      "routing_key": "monitoring.*",
+      "arguments": {}
+    },
+    {
+      "source": "agent.tasks",
+      "vhost": "/",
+      "destination": "agent.security.tasks",
+      "destination_type": "queue",
+      "routing_key": "security.*",
+      "arguments": {}
+    },
+    {
+      "source": "agent.tasks",
+      "vhost": "/",
+      "destination": "agent.finance.tasks",
+      "destination_type": "queue",
+      "routing_key": "finance.*",
+      "arguments": {}
+    },
+    {
+      "source": "agent.tasks",
+      "vhost": "/",
+      "destination": "agent.hr.tasks",
+      "destination_type": "queue",
+      "routing_key": "hr.*",
+      "arguments": {}
+    },
+    {
+      "source": "agent.deadletter",
+      "vhost": "/",
+      "destination": "agent.deadletter.queue",
+      "destination_type": "queue",
+      "routing_key": "*",
+      "arguments": {}
+    },
+    {
+      "source": "agent.notifications",
+      "vhost": "/",
+      "destination": "agent.notifications.all",
+      "destination_type": "queue",
+      "routing_key": "",
+      "arguments": {}
+    }
+  ]
+}
+

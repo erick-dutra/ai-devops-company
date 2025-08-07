@@ -1,0 +1,91 @@
+Eu sou dono de uma empresa de serviços de TI (Desenvolvimento de software, DevOps, etc), essa empresa possui algumas áreas (Comercial, Financeiro, Talentos, HR, Operação)
+
+Segue abaixo o papel de cada área
+Comercial:
+1. Prospecção e Qualificação
+   Responsável: Comercial
+   Ação: Identificar e abordar potenciais clientes com fit técnico e estratégico.
+   Saída: Leads qualificados com problema claro e capacidade de investimento.
+
+2. Descoberta e Mapeamento da Demanda Técnica
+   Responsável: Comercial + apoio técnico (pré-vendas, tech lead, etc.)
+   Ação: Coletar informações detalhadas sobre:
+            - Stack exigida
+            - Volume de entrega esperado
+            - SLA e urgência
+            - Nível de maturidade técnica do cliente
+
+   Saída: Insumos para uma proposta viável (ex: precisa de 3 devs em até 15 dias com foco em DevOps e backend .NET).
+
+3. Elaboração e Apresentação da Proposta
+   Responsável: Comercial
+   Ação: Montar proposta técnica-comercial com:
+            - Escopo
+            - Modelos de entrega (squad, alocação, consultoria)
+            - Preço e prazo de início
+            - Perfis esperados
+
+   Saída: Proposta enviada ao cliente e alinhada internamente com operações (pré-comprometimento da capacidade técnica).
+
+4. Negociação e Fechamento
+   Responsável: Comercial
+   Ação: Lidar com objeções e concluir o acordo.
+	🔔 GATILHO PARA CONTRATAÇÃO:
+	    Contrato assinado ou aceite formal com compromisso jurídico.
+
+   	    Ação imediata após fechamento:
+   	       - Comercial aciona operações, recrutamento/formação e liderança técnica com briefing do projeto.
+   	       - Marca início previsto (lead time de mobilização).
+   	       - Inicia planejamento de squad/alocação.
+
+5. Disparo da Mobilização Técnica
+   Responsável: Operações (com input do Comercial)
+   Ação:
+      - Checagem da disponibilidade de talentos internos (banco, trainees em formação).
+      - Abertura de novas vagas ou aceleração de formação.
+      - Montagem do time com base no escopo vendido.
+
+   Saída: Squad ou recurso em preparação para onboarding.
+
+6. Onboarding e Transição Cliente-Operação
+   Responsável: Comercial + Operações
+   Ação:
+      - Alinhar kick-off com o cliente.
+      - Garantir entrega do escopo combinado.
+      - Passar bastão para o time técnico responsável (com apoio do instrutor ou tech lead, se for um modelo com devs em formação).
+
+7. Relacionamento e Expansão
+Responsável: Comercial
+Ação contínua:
+
+Manter contato com o cliente.
+
+Identificar novas demandas (up/cross-selling).
+
+Reabrir o ciclo de vendas conforme a entrega gera confiança.
+
+Financeiro:
+- Recebimento de notas fiscais dos colaboradores dentro da competência vigente
+- Emissão de notas fiscais para os clientes dentro da competência vigente
+- Atualização do fluxo de Caixa dentro da competência vigente
+
+
+Talentos
+- Recebe do commercial a lista de novas vagas
+- Busca no linkedin os talentos necessários para suprir as vagas
+- Inicia o fluxo de contratação
+
+
+
+RH
+- 
+
+
+Operação
+- 
+
+
+
+Quero criar agentes de IA usando o Microsoft Semantic Kernel (C#) para automatizar as tarefas de cada área, quero que você sugira o modelo de dados necessário para cada área. Use o mongodb como ferramenta de banco de dados, crie os prompts para cada agente se comportar e executar tarefas conforme descrito no prompt e que o prompt seja configurável no banco de dados, ou seja, teremos uma empresa executada por agentes.
+
+Como um plus queria um time de devs, agentes, como uma oferta de trabalho
